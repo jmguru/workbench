@@ -1,0 +1,27 @@
+{ "John" : {
+    "role" : "king",
+    "services" : {
+      "Paypal": {
+        "username": "blah",
+        "password": "gubub"
+      },
+      "Amazon": {
+        "username": "blah",
+        "password": "gubub"
+      }
+    }
+  },
+  "Terri" : {
+    "role" : "queen",
+    "services" : {
+      "Paypal": {
+        "username": "glah",
+        "password": "bubub"
+      },
+      "Amazon": {
+        "username": "glah",
+        "password": "bubub"
+      }
+    }
+  }
+}
