@@ -1,4 +1,4 @@
 require('strict');
 
-console.log("Hello nigger.");
+console.log("Hello fucker.");
 
