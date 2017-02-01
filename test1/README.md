@@ -3,12 +3,12 @@ Rev 1 <br>
 --Read JSON file <br>
 --Load into memory <br>
 --Print variables <br>
-
+<br>
 Rev 2 <br>
---Create web interface
--- 1. Three forms: text, text, button, text
--- ex> first, service, submit, result
--- 2. Callback
--- ex> On submit, pass the firstname, and service into the app
--- ey> pass parameters into function
--- ez> send back username/password to screen.
+--Create web interface  <br>
+-- 1. Three forms: text, text, button, text <br>
+-- ex> first, service, submit, result <br>
+-- 2. Callback <br>
+-- ex> On submit, pass the firstname, and service into the app <br>
+-- ey> pass parameters into function <br>
+-- ez> send back username/password to screen. <br>
