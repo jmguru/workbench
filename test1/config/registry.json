@@ -1,27 +1,37 @@
-{ "John" : {
-    "role" : "king",
-    "services" : {
-      "Paypal": {
-        "username": "blah",
-        "password": "gubub"
+{
+  "Person":
+[
+  { "firstname": "John",
+    "lastname": "Griffith",
+    "services" :
+    [
+      {
+        "name" : "Paypal",
+        "username" : "jmguru",
+        "password" : "mugwump"
       },
-      "Amazon": {
-        "username": "blah",
-        "password": "gubub"
+      {
+        "name" : "Amazon",
+        "username" : "tmcgrimgram",
+        "password" : "monkeyshit"
       }
-    }
+    ]
   },
-  "Terri" : {
-    "role" : "queen",
-    "services" : {
-      "Paypal": {
-        "username": "glah",
-        "password": "bubub"
+  { "firstname": "Terri",
+    "lastname": "Griffith",
+    "services" :
+    [
+      {
+        "name" : "Paypal",
+        "username" : "terri",
+        "password" : "lalala"
       },
-      "Amazon": {
-        "username": "glah",
-        "password": "bubub"
+      {
+        "name" : "Amazon",
+        "username" : "tbone",
+        "password" : "poopoo"
       }
-    }
+    ]
   }
+]
 }
