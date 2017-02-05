@@ -3,11 +3,12 @@ extend layout
 block content
   p
     | Get your username and password:
-  p
     form(action="/",method="post")
-      p Enter your first name:
-        input(id="firstname",type="text",name="firstname",placeholder="...")
-      p Enter your the website or service: 
-        input(id="servicename",type="text",name="servicename",placeholder="...")
       p
-        input(id="submit",type="submit",value="submit")
+          select(name="retName", id="retName")
+            -for item in names
+              option(value='#{item}') #{item}
+      p
+          input(id="servicename",type="text",name="servicename",placeholder="...")
+      p
+          input(id="submit",type="submit",value="submit")

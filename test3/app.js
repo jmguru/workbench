@@ -6,6 +6,14 @@ var fs = require("fs");
 var contents = fs.readFileSync("config/registry.json");
 var jsonContent = JSON.parse(contents);
 
+var names = []
+
+var len = Object.keys(jsonContent.Person).length;
+for ( var i = 0; i < len; i++) {
+  names.push(jsonContent.Person[i].firstname)
+}
+
+
 var userobj = {
                   username: "",
                   password: ""
@@ -40,12 +48,13 @@ app.use(express.static(__dirname + '/public'))
 app.get('/', function (req, res) {
   res.render('index', {
     title : 'AuthManager' ,
-    name: 'AuthManager'
+    name: 'AuthManager',
+    names: names
   })
 })
 
 app.post('/', function(req, res){
-  var firstname = req.body.firstname;
+  var firstname = req.body.retName;
   var servicename = req.body.servicename;
   getUsernamePassword(jsonContent,firstname,servicename,userobj);
   res.render('payback', {
@@ -62,7 +71,6 @@ app.listen(4000)
 
 function getUsernamePassword(json,client,servicename,payload) {
   var num = Object.keys(json.Person).length;
-
   for ( var i = 0; i < num; i++)
   {
       if (client == json.Person[i].firstname) {
