@@ -4,7 +4,8 @@ block content
   form(action="/",method="post")
     table(border='6px', width='100%')
       tr
-        td Select your name:
+        td
+          p.jg Select your name:
         td
           select(name="retName", id="retName")
             -for item in names
@@ -25,7 +26,8 @@ block content
         td
           p
       tr
-        td Select your service:
+        td
+          p.jg Select your service:
         td
           select(name="servicename", id="servicename")
             -for item in svcs

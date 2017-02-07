@@ -117,7 +117,7 @@ form input {
   background-color: #2e589b;
   color: #fff;
   width: 60%;
-  font-size: 35px;
+  font-size: 45px;
 }
 select {
   width: 100%;
@@ -126,13 +126,13 @@ select {
   border-radius: 4px;
   background-color: #2e589b;
   color: #fff;
-  font-size: 35px;
+  font-size: 45px;
 }
 header {
   font-family: 'Quicksand';
   padding: 50px 10px;
   color: #fff;
-  font-size: 45px;
+  font-size: 65px;
   text-align: center;
 /*
    * Note the use of the `main-color`
@@ -143,16 +143,19 @@ header {
   text-shadow: 0px -1px 0px #203e6c;
 }
 .container {
-  width: 800px;
+  width: 900px;
   margin: 50px auto;
   overflow: hidden;
 }
 .main-content {
   float: left;
-  width: 800px;
+  width: 900px;
 }
 .main-content p {
   margin-bottom: 20px;
+}
+.main-content p.jg {
+  font-weight: bold;
 }
 .main-content h2 {
   font-size: 20px;
