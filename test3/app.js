@@ -8,7 +8,12 @@ var jsonContent = JSON.parse(contents);
 var service_json = fs.readFileSync("config/services.json");
 var jsonContent2 = JSON.parse(service_json);
 
+var crypto = require('crypto'),
+    algorithm = 'aes-256-ctr',
+    password = 'b00ft3nd3rs';
+
 var names = []
+var svcs = []
 var len = Object.keys(jsonContent.Person).length;
 for ( var i = 0; i < len; i++) {
   names.push(jsonContent.Person[i].firstname)
@@ -28,7 +33,6 @@ var userobj = {
 var express = require('express')
   , stylus = require('stylus')
   , nib = require('nib')
-
 
 var app = express()
 
@@ -68,10 +72,6 @@ app.post('/', function(req, res){
 
   getUsernamePassword(jsonContent,firstname,servicename,userobj);
 
-  console.log("post call")
-  console.log("firstname :" + firstname)
-  console.log("servicename :" + servicename)
-
   res.render('payback', {
     title : 'AuthManager' ,
     name: 'AuthManager',
@@ -84,6 +84,13 @@ app.post('/', function(req, res){
 
 app.listen(4000)
 
+function decrypt(text){
+  var decipher = crypto.createDecipher(algorithm,password)
+  var dec = decipher.update(text,'hex','utf8')
+  dec += decipher.final('utf8');
+  return dec;
+}
+
 function getUsernamePassword(json,client,servicename,payload) {
   var num = Object.keys(json.Person).length;
   for ( var i = 0; i < num; i++)
@@ -94,12 +101,13 @@ function getUsernamePassword(json,client,servicename,payload) {
           for (var j = 0; j < num2; j++) {
             if(servicename == obj[j].name) {
               payload.username = obj[j].username;
-              payload.password = obj[j].password;
+              payload.password = decrypt(obj[j].password);
             }
           }
       }
   }
 }
+
 function getServices(client, json) {
   var num = Object.keys(json.Person).length;
   for ( var i = 0; i < num; i++)
