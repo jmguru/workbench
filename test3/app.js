@@ -5,14 +5,20 @@ var fs = require("fs");
 
 var contents = fs.readFileSync("config/registry.json");
 var jsonContent = JSON.parse(contents);
+var service_json = fs.readFileSync("config/services.json");
+var jsonContent2 = JSON.parse(service_json);
 
 var names = []
-
 var len = Object.keys(jsonContent.Person).length;
 for ( var i = 0; i < len; i++) {
   names.push(jsonContent.Person[i].firstname)
 }
 
+var svcs = []
+len = Object.keys(jsonContent2.services).length;
+for ( var i = 0; i < len; i++) {
+  svcs.push(jsonContent2.services[i].name)
+}
 
 var userobj = {
                   username: "",
@@ -43,20 +49,29 @@ app.use(stylus.middleware(
   , compile: compile
   }
 ))
+
 app.use(express.static(__dirname + '/public'))
 
 app.get('/', function (req, res) {
+
   res.render('index', {
     title : 'AuthManager' ,
     name: 'AuthManager',
-    names: names
+    names: names,
+    svcs: svcs
   })
 })
 
 app.post('/', function(req, res){
   var firstname = req.body.retName;
   var servicename = req.body.servicename;
+
   getUsernamePassword(jsonContent,firstname,servicename,userobj);
+
+  console.log("post call")
+  console.log("firstname :" + firstname)
+  console.log("servicename :" + servicename)
+  
   res.render('payback', {
     title : 'AuthManager' ,
     name: 'AuthManager',
@@ -83,5 +98,13 @@ function getUsernamePassword(json,client,servicename,payload) {
             }
           }
       }
+  }
+}
+function getServices(client, json) {
+  var num = Object.keys(json.Person).length;
+  for ( var i = 0; i < num; i++)
+  {
+      if (client == json.Person[i].firstname)
+        svcs = json.Person[i].services;
   }
 }

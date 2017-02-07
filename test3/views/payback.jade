@@ -2,9 +2,12 @@ extend layout
 
 block content
   p
-    | Access information for #{firstname} for accessing #{servicename}
+    h2 Credentials for #{firstname} for accessing #{servicename} : 
   p
-    | Username: #{uname}
+    | Username: <b>#{uname}</b>
 
   p
-    | Password: #{password}
+    | Password: <b>#{password}</b>
+  p
+    h2
+      a(href="/", title="Home") Back

@@ -1,14 +1,52 @@
 extend layout
 
 block content
-  p
-    | Get your username and password:
-    form(action="/",method="post")
-      p
+  form(action="/",method="post")
+    table(border='6px', width='100%')
+      tr
+        td Select your name:
+        td
           select(name="retName", id="retName")
             -for item in names
               option(value='#{item}') #{item}
-      p
-          input(id="servicename",type="text",name="servicename",placeholder="...")
-      p
+      tr
+        td
+          p
+        td
+          p
+      tr
+        td
+          p
+        td
+          p
+      tr
+        td
+          p
+        td
+          p
+      tr
+        td Select your service:
+        td
+          select(name="servicename", id="servicename")
+            -for item in svcs
+              option(value='#{item}') #{item}
+      tr
+        td
+          p
+        td
+          p
+      tr
+        td
+          p
+        td
+          p
+      tr
+        td
+          p
+        td
+          p
+      tr
+        td
           input(id="submit",type="submit",value="submit")
+        td
+          p
