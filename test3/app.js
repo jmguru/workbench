@@ -71,7 +71,7 @@ app.post('/', function(req, res){
   console.log("post call")
   console.log("firstname :" + firstname)
   console.log("servicename :" + servicename)
-  
+
   res.render('payback', {
     title : 'AuthManager' ,
     name: 'AuthManager',
